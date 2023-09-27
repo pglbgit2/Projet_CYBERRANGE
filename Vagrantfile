@@ -3,7 +3,8 @@
 
 
 $script = <<-SCRIPT
-sudo passwd root
+apt-get install python3-venv
+apt install pip
 pip uninstall flask && python -m pip install flask
 sudo apt install python3-flask
 python3 -m venv .venv
