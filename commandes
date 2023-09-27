@@ -1,0 +1,14 @@
+sudo passwd root
+pip uninstall flask && python -m pip install flask
+sudo apt install python3-flask
+python3 -m venv .venv
+. .venv/bin/activate
+echo 'from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"' > file.py
+
+flask --app file.py run
