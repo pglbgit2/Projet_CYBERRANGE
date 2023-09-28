@@ -1,25 +1,23 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# $script = <<-SCRIPT
+# apt-get install python3-venv
+# apt install pip
+# pip uninstall flask && python -m pip install flask
+# sudo apt install python3-flask
+# python3 -m venv .venv
+# . .venv/bin/activate
+# echo 'from flask import Flask
 
-$script = <<-SCRIPT
-apt-get install python3-venv
-apt install pip
-pip uninstall flask && python -m pip install flask
-sudo apt install python3-flask
-python3 -m venv .venv
-. .venv/bin/activate
-echo 'from flask import Flask
+# app = Flask(__name__)
 
-app = Flask(__name__)
+# @app.route("/")
+# def hello_world():
+#     return "<p>Hello, World!</p>"' > file.py
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"' > file.py
-
-flask --app file.py run
-SCRIPT
-
+# flask --app file.py run
+# SCRIPT
 
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -33,10 +31,29 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "hashicorp/bionic64"
-  config.vm.provision "shell", inline: $script
 
 
+
+  config.vm.box = "ubuntu/trusty64"
+    config.vm.network "forwarded_port", guest: 80, host: 8080
+    config.vm.network "private_network", ip:"192.165.30.10"
+    config.vm.define "trusty" do |node|
+      node.vm.hostname = "trusty.local"
+      node.vm.provision "ansible" do |ansible|
+        ansible.playbook = "main.yml"
+      end
+    end
+  config.vm.provider "virtualbox" do |vb|
+  vb.memory = "512"
+      vb.cpus = "1"
+    end
+  
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+
+  SHELL
+
+    #config.vm.provision "shell", inline: $script
 
 
   # Disable automatic box update checking. If you disable this, then
