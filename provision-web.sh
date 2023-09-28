@@ -10,4 +10,3 @@ sudo pip3 install Flask
 # Copiez votre application Flask et démarrez le serveur Flask
 /test/script.sh
 python3 flask_app.py
-
