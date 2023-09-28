@@ -4,14 +4,34 @@ echo "from flask import Flask
 
 app = Flask(__name__)
 
+def getfrontend():
+    file = open('frontend.html','r')
+    contenu= file.read()
+    file.close()
+    return contenu
+
+
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def frontend():
+    return getfrontend()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')" > app.py
 
+echo "<!DOCTYPE html>
+<html>
+    <head>
+        <title>Some site</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
 
+
+        <p>TEST</p>
+    </body>
+    
+</html>" > frontend.html
 # Exécutez ifconfig pour obtenir la liste des interfaces réseau et leurs adresses IP
 ifconfig_output=$(ifconfig)
 
