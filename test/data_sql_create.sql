@@ -22,4 +22,4 @@ CREATE TABLE SECURE_LOGS (
 	DOBr date,
 	Request varchar(255) NOT NULL);
 
-/* Utilise la commande : 'sudo mysql > data_sql_create.sql  */
+/* Utilise la commande : 'sudo mysql < data_sql_create.sql  */

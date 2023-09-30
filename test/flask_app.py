@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
+
 
 app = Flask(__name__)
 
-def getfrontend():
-    file = open('frontend.html','r')
+def getfrontend(source):
+    file = open(source,'r')
     contenu= file.read()
     file.close()
     return contenu
@@ -11,7 +12,8 @@ def getfrontend():
 
 @app.route('/')
 def frontend():
-    return getfrontend()
+    return getfrontend('Formulaire.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

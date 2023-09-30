@@ -7,6 +7,8 @@ sudo apt-get upgrade -y
 sudo apt-get install -y python3 python3-pip
 sudo pip3 install Flask
 
+
+
 # Copiez votre application Flask et démarrez le serveur Flask
 /test/script.sh
 python3 flask_app.py
