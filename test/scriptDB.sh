@@ -1,7 +1,5 @@
 #!/bin/bash
-#Créer le fichier de server 
-cat /test/flask_app.py  > flask_app.py
-cat /test/frontend.html > frontend.html
+
 # Exécutez ifconfig pour obtenir la liste des interfaces réseau et leurs adresses IP
 ifconfig_output=$(ifconfig)
 
@@ -9,8 +7,5 @@ ifconfig_output=$(ifconfig)
 public_ips=$(echo "$ifconfig_output" | awk '/inet / && !/127.0.0.1/ && !/inet 10\./ {gsub(/addr:/, "", $2); print $2}')
 
 # Affiche les adresses IP publiques (sans celles qui commencent par 10)
-echo "$public_ips" > /test/addr
-vm_ip=$(cat /test/addrDB)
-sed -i "s/DATABASE_HOST = os.getenv(\"IPDATABASE\")/DATABASE_HOST = os.getenv(\"${vm_ip}\")/" ./test/flask_app.py
-python3 flask_app.py &
+echo "$public_ips" > /test/addrDB
 
