@@ -6,4 +6,13 @@ sudo apt-get upgrade -y
 #creation de la bdd
 sudo apt-get install -y mysql-server
 cat /test/data_sql_create.sql  > data_sql_create.sql
+
 mysql < data_sql_create.sql
+# Configurer la base de données, créer des utilisateurs, etc.
+# Assurez-vous de sécuriser correctement votre base de données.
+
+# Exemple : Création d'une base de données et d'un utilisateur
+mysql -u root -p -e "CREATE DATABASE testDB;"
+mysql -u root -p -e "CREATE USER 'myuser'@'localhost' IDENTIFIED BY '4#j4TA-qNf5yj5M5^3D+';"
+mysql -u root -p -e "GRANT ALL PRIVILEGES ON mydb.* TO 'myuser'@'localhost';"
+

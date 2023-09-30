@@ -12,5 +12,7 @@ public_ips=$(echo "$ifconfig_output" | awk '/inet / && !/127.0.0.1/ && !/inet 10
 
 # Affiche les adresses IP publiques (sans celles qui commencent par 10)
 echo "$public_ips" > /test/addr
-
+vm_ip=$(cat /test/addrDB)
+sed -i "s/DATABASE_HOST = os.getenv(\"IPDATABASE\")/DATABASE_HOST = os.getenv(\"${vm_ip}\")/" ./test/flask_app.py
+python3 flask_app.py &
 
