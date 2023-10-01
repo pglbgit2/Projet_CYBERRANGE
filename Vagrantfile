@@ -12,9 +12,5 @@ Vagrant.configure("2") do |config|
     web.vm.provision "shell", path: "provision-web.sh"
   end
   
-  config.vm.define "bdd" do |bdd|
-    bdd.vm.network "private_network", type: "dhcp"
-    bdd.vm.provision "shell", path: "provision-db.sh"
-  end
 end
 
