@@ -1,0 +1,12 @@
+Log created: 2023-09-29T15:05:40.548561000Z
+Process ID:  30314 (0x766a)
+Parent PID:  1 (0x1)
+Executable:  /usr/lib/virtualbox/VBoxHeadless
+Arg[0]: /usr/lib/virtualbox/VBoxHeadless
+Arg[1]: --comment
+Arg[2]: Projet_CYBERRANGE_web_1695994484506_54544
+Arg[3]: --startvm
+Arg[4]: 426ca805-ee1f-4558-bb11-9466710f4e9f
+Arg[5]: --vrde
+Arg[6]: config
+AddRef: illegal refcnt=3221225469 state=2
