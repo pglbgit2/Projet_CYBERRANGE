@@ -3,11 +3,12 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 
-# Installez Python, Flask et d'autres dépendances
+# Installation de python
 sudo apt-get install -y python3 python3-pip
 sudo pip3 install Flask
+pip3 install flask_mysqldb
 
-# Copiez votre application Flask et démarrez le serveur Flask
-/test/script.sh
-python3 flask_app.py
+#Copie des fichiers et copie de l'adresse ip
+/test/scriptWeb.sh
+python3 flask_app.py &
 

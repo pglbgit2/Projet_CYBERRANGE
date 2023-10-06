@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Exécutez ifconfig pour obtenir la liste des interfaces réseau et leurs adresses IP
-ifconfig_output=$(ifconfig)
+### ----Paramétrage de l'accès à MySQL---- ###
 
-# Utilisez awk pour extraire les adresses IP publiques (excluant les adresses privées)
-public_ips=$(echo "$ifconfig_output" | awk '/inet / && !/127.0.0.1/ && !/inet 10\./ {gsub(/addr:/, "", $2); print $2}')
-
-# Affiche les adresses IP publiques (sans celles qui commencent par 10)
-echo "$public_ips" > /test/addrDB
-
+sed -i 's/^bind-address.*/bind-address            = 192.168.56.2/g' /etc/mysql/mysql.conf.d/mysqld.cnf
