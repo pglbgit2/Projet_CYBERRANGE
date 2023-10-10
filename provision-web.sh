@@ -7,7 +7,7 @@ sudo apt-get upgrade -y
 sudo apt-get install -y python3 python3-pip
 sudo pip3 install Flask
 pip3 install flask_mysqldb
-sudo apt install mysql-server -y
+#sudo apt install mysql-server -y
 
 #Copie des fichiers et copie de l'adresse ip
 /test/scriptWeb.sh
