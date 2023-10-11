@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/jammy64"
-  config.vm.synced_folder "test/", "/test"
+  config.vm.synced_folder "pentest-scenario/basic-sql-injection/shared-files", "/shared"
   
   config.vm.define "database" do |db|
     db.vm.network "private_network", ip: "192.168.56.3"
