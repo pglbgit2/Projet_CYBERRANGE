@@ -2,3 +2,5 @@
 .vagrant
 *.log
 test/addr
+/pentest-scenario/basic-sql-injection/shared-files/clientsshkey
+/pentest-scenario/basic-sql-injection/shared-files/clientsshkey.pub
