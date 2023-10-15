@@ -1,6 +1,5 @@
 .venv
 .vagrant
 *.log
- *.txt
+*.txt
 shared/
-ubuntu-bionic*

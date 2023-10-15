@@ -1,0 +1,15 @@
+#MDP de la bdd : 
+4#j4TA-qNf5yj5M5^3D+
+
+sudo apt-get install libmysqlclient-dev
+pip3 install mysqlclient
+pip3 install flask-mysqldb
+
+#côté db
+############ Autorisé l'ip du web pour connection à la BDD
+sed -i 's/^bind-address.*/bind-address            = 192.168.56.2/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+
+#en sql
+GRANT ALL PRIVILEGES ON testDB.* TO 'myuser'@'192.168.56.2' IDENTIFIED BY '4#j4TA-qNf5yj5M5^3D+' WITH GRANT OPTION;
+flush privileges;
+
